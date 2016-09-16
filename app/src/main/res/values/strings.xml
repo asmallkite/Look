@@ -14,5 +14,8 @@
     <string name="meizi" translatable="false">每日看看</string>
     <string name="title_activity_main2">Main2Activity</string>
 
-    <string name="action_settings">Settings</string>
+
+    <string name="meizitips" translatable="false">每日推送一个漂亮妹子和经典视频,看不看随小主!(长按保存图片)</string>
+    <string name="meiziaction" translatable="false">我懂</string>
+    <string name="snack_infor">请检查网络</string>
 </resources>

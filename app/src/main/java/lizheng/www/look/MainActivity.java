@@ -2,6 +2,7 @@ package lizheng.www.look;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,29 +12,30 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import lizheng.www.look.activity.BaseActivity;
+import lizheng.www.look.fragment.MeiziFragment;
 
 public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     long exitTime = 0;
-
-    @InjectView(R.id.fragment_container)
+    @BindView(R.id.fragment_container)
     FrameLayout mFragmentContainer;
-    @InjectView(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @InjectView(R.id.nav_view)
+    @BindView(R.id.nav_view)
     NavigationView navView;
-    @InjectView(R.id.drawer_layout)
+    @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         toolbar.setOnMenuItemClickListener(onMenuItemClick);
 
@@ -90,10 +92,22 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.topnewsitem) {
             Toast.makeText(MainActivity.this, "topnew", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.meiziitem) {
-            Toast.makeText(MainActivity.this, "meizi", Toast.LENGTH_SHORT).show();
+            switchFragment(new MeiziFragment());
+            Toast.makeText(MainActivity.this, "meizi ffffffffff", Toast.LENGTH_SHORT).show();
         }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void switchFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(
+                             R.id.fragment_container, fragment).commit();
+    }
+
+    public interface LoadingMore {
+        void loadingStart();
+
+        void loadingFinish();
     }
 }
