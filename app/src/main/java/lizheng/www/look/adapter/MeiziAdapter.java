@@ -23,6 +23,7 @@ import lizheng.www.look.bean.Meizi;
 
 /**
  * Created by 10648 on 2016/9/16 0016.
+ *
  */
 public class MeiziAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements MainActivity.LoadingMore {
 
@@ -142,10 +143,6 @@ public class MeiziAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mProgressBar = (ProgressBar) itemView;
         }
     }
-
-    /**
-     * 待测试
-     */
 
 
     public class MeiziViewHolder extends RecyclerView.ViewHolder {

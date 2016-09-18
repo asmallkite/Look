@@ -13,7 +13,7 @@ public class Once {
     Context mContext;
 
     public Once(Context context) {
-        mSharedPreferences = context.getSharedPreferences("once", Context.MODE_PRIVATE);
+        mSharedPreferences = context.getSharedPreferences("key", Context.MODE_PRIVATE);
         mContext = context;
     }
 

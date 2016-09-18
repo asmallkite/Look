@@ -5,11 +5,11 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,7 +47,6 @@ public class MeiziFragment extends BaseFragment implements IMeiziFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_meizi, container, false);
         unbinder = ButterKnife.bind(this, view);
-        Log.d("MeiziFagment", "---->>>onCreateView");
         return view;
     }
 
@@ -58,7 +57,6 @@ public class MeiziFragment extends BaseFragment implements IMeiziFragment {
         initView();
         
         super.onViewCreated(view, savedInstanceState);
-        Log.d("MeiziFagment", "---->>>onViewCreate");
     }
 
     private void initView() {
@@ -76,6 +74,7 @@ public class MeiziFragment extends BaseFragment implements IMeiziFragment {
                         .setAction(R.string.meiziaction, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                Toast.makeText(getContext(), "你懂真好", Toast.LENGTH_SHORT).show();
 
                             }
                         })
@@ -84,7 +83,6 @@ public class MeiziFragment extends BaseFragment implements IMeiziFragment {
         });
         mRecycleMeizi.setItemAnimator(new DefaultItemAnimator());
         loadData();
-        Log.d("MeiziFagment", "---->>>loadData end");
     }
 
     private void loadData() {
@@ -95,7 +93,6 @@ public class MeiziFragment extends BaseFragment implements IMeiziFragment {
     }
 
     private void intialListener() {
-        Log.d("MeiziFagment", "---->>>initListener start");
         loadmoreListener = new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -121,7 +118,6 @@ public class MeiziFragment extends BaseFragment implements IMeiziFragment {
     }
 
     private void loadMoreData() {
-        Log.d("MeiziFagment", "---->>>initListener end -->> start loadMoreData");
         meiziAdapter.loadingStart();
         mMeiziPresenter.getMeiziData(index);
     }
@@ -129,11 +125,9 @@ public class MeiziFragment extends BaseFragment implements IMeiziFragment {
 
     @Override
     public void onDestroyView() {
-        Log.d("MeiziFagment", "---->>>onDestroyView start");
         super.onDestroyView();
         mMeiziPresenter.unsubcrible();
         unbinder.unbind();
-        Log.d("MeiziFagment", "---->>>onDestroyView end");
     }
 
     @Override
@@ -141,7 +135,6 @@ public class MeiziFragment extends BaseFragment implements IMeiziFragment {
         meiziAdapter.loadingFinish();
         loading =false;
         meiziAdapter.addItems(list);
-        Log.d("MeiziFagment",String.valueOf(meiziAdapter.getItemCount()));
     }
 
     @Override

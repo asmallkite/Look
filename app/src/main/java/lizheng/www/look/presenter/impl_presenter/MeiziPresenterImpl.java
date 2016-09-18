@@ -28,12 +28,10 @@ public class MeiziPresenterImpl extends BasePresenterImpl implements IMeiziPrese
     public MeiziPresenterImpl(Context context, IMeiziFragment iMeiziFragment) {
         this.mIMeiziFragment = iMeiziFragment;
         mCacheUtil = CacheUtil.get(context);
-        Log.d("MeiziPresenterImpl", "MeiziPresenterImpl is there");
     }
 
     @Override
     public void getMeiziData(int t) {
-        Log.d("MeiziPresenterImpl", "MeiziPresenterImpl getMeiziData tongfa");
         mIMeiziFragment.showProgressDialog();
         Subscription subscription = ApiManage.getInstance()
                 .getGankService().getMeiziData(t)
@@ -55,7 +53,6 @@ public class MeiziPresenterImpl extends BasePresenterImpl implements IMeiziPrese
 
                     @Override
                     public void onNext(MeiziData data) {
-                        Log.d("MeiziPresenterImpl", "onNext");
                         mIMeiziFragment.hidProgressDialog();
                         mCacheUtil.put(Config.MEIZI, gson.toJson(data));
                         mIMeiziFragment.updateMeiziData(data.getResults());
