@@ -158,7 +158,7 @@ public class MeiziAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
         @OnClick(R.id.item_image_id)
         public void onClick() {
-            Toast.makeText(mContext, "out cladd  in again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "I love you ", Toast.LENGTH_SHORT).show();
         }
     }
 
