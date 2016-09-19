@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import lizheng.www.look.R;
 import lizheng.www.look.adapter.MeiziAdapter;
-import lizheng.www.look.bean.Meizi;
+import lizheng.www.look.bean.meizi.Meizi;
 import lizheng.www.look.presenter.impl_presenter.MeiziPresenterImpl;
 import lizheng.www.look.presenter.impl_view.IMeiziFragment;
 import lizheng.www.look.util.Once;

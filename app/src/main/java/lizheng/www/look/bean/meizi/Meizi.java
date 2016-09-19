@@ -1,4 +1,4 @@
-package lizheng.www.look.bean;
+package lizheng.www.look.bean.meizi;
 
 import java.util.Date;
 

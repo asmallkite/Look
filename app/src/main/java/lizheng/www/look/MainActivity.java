@@ -16,6 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import lizheng.www.look.activity.BaseActivity;
 import lizheng.www.look.fragment.MeiziFragment;
+import lizheng.www.look.fragment.TopNewsFragment;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -90,10 +91,11 @@ public class MainActivity extends BaseActivity
         if (id == R.id.zhihuitem) {
             Toast.makeText(MainActivity.this, "zhihu", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.topnewsitem) {
+            switchFragment(new TopNewsFragment());
             Toast.makeText(MainActivity.this, "topnew", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.meiziitem) {
             switchFragment(new MeiziFragment());
-            Toast.makeText(MainActivity.this, "meizi ffffffffff", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MainActivity.this, "meizi ffffffffff", Toast.LENGTH_SHORT).show();
         }
 
         drawer.closeDrawer(GravityCompat.START);

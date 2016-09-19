@@ -2,7 +2,7 @@ package lizheng.www.look.presenter.impl_view;
 
 import java.util.ArrayList;
 
-import lizheng.www.look.bean.Meizi;
+import lizheng.www.look.bean.meizi.Meizi;
 
 /**
  * Created by 10648 on 2016/9/15 0015.

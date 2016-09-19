@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import lizheng.www.look.MainActivity;
 import lizheng.www.look.R;
-import lizheng.www.look.bean.Meizi;
+import lizheng.www.look.bean.meizi.Meizi;
 
 /**
  * Created by 10648 on 2016/9/16 0016.

@@ -21,6 +21,9 @@ public class ApiManage {
     public static ApiManage apiManage;
     private Object monitor = new Object();
 
+    private GankApi gank;
+    private TopNews topNews;
+
     private static final Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
         @Override
         public Response intercept(Chain chain) throws IOException {
@@ -69,7 +72,7 @@ public class ApiManage {
         return apiManage;
     }
 
-    public GankApi gank;
+
 
     public GankApi getGankService() {
         if (gank == null) {
@@ -86,5 +89,22 @@ public class ApiManage {
             }
         }
         return gank;
+    }
+
+    public TopNews getTopNewsService() {
+        if (topNews == null) {
+            synchronized (monitor) {
+                if (topNews == null) {
+                    topNews = new Retrofit.Builder()
+                            .baseUrl("http://c.m.163.com")
+                            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                            .client(client)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build()
+                            .create(TopNews.class);
+                }
+            }
+        }
+        return topNews;
     }
 }
